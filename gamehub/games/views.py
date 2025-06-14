@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Game
+from .models import Game, Review
 from .forms import ReviewForm
 
 def game_list(request):
@@ -7,8 +7,8 @@ def game_list(request):
     return render(request, 'games/game_list.html', {'games': games})
 
 def game_detail(request, pk):
-    game = get_object_or_404(Game, pk=pk)
-    reviews = game.reviews.order_by('-created_at')
+    game = get_object_or_404(Game, id=pk)
+    reviews = game.reviews.all()
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -16,7 +16,7 @@ def game_detail(request, pk):
             review = form.save(commit=False)
             review.game = game
             review.save()
-            return redirect('game_detail', pk=pk)
+            return redirect('game_detail', pk=pk.id)
     else:
         form = ReviewForm()
 

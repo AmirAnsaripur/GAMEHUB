@@ -16,7 +16,7 @@ class Game(models.Model):
 class Review(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='reviews')
     user_name = models.CharField(max_length=100)
-    rating = models.PositiveIntegerField()  # امتیاز بازی (مثلاً از 1 تا 5)
+    rating = models.PositiveIntegerField()
     review_text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
