@@ -16,7 +16,7 @@
 ## 🚀 Tech Stack
 
 - 💻 Python & Django  
-- 🎨 HTML/CSS (Bootstrap or plain)  
+- 🎨 HTML/CSS (Bootstrap)  
 - 🛢️ SQLite (default Django database)  
 
 ---
