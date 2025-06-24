@@ -28,6 +28,7 @@ git clone https://github.com/AmirAnsaripur/GAMEHUB.git
 cd GAMEHUB
 
 python -m venv venv
+cd gamehub
 
 # Activate virtual environment
 # On Windows:
