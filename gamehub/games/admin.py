@@ -1,7 +1,13 @@
 from django.contrib import admin
 
-# Register your models here.
 from .models import Game, Review
 
-admin.site.register(Game)
-admin.site.register(Review)
+class ReviewAdminInline(admin.TabularInline):
+    model = Review
+    fields = ['user_name','rating','review_text']
+    extra = 0
+
+@admin.register(Game)
+class GameAdmin(admin.ModelAdmin):
+    list_display = ['title', 'genre','platform','release_date']
+    inlines = [ReviewAdminInline]
